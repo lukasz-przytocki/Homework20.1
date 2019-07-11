@@ -22,7 +22,7 @@
       <input type="text" class="form-control" placeholder="metry" name="metry">
       <input type="text" class="form-control" placeholder="centymetry" name="centymetry">
       <input type="text" class="form-control" placeholder="milimetry" name="milimetry">
-      <input type="submit" name="Przelicz"><br>
+      <input type="submit" value="Przelicz">
     </div>
   </form>
 
@@ -33,7 +33,7 @@
       <input type="text" class="form-control" placeholder="kilogramy" name="kilogramy">
       <input type="text" class="form-control" placeholder="gramy" name="gramy">
       <input type="text" class="form-control" placeholder="miligramy" name="miligramy">
-      <input type="submit" name="Przelicz"><br>
+      <input type="submit" value="Przelicz">
     </div>
 
   </form>
