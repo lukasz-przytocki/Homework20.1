@@ -40,14 +40,14 @@ public class UnitConverter extends HttpServlet {
                 double doubleCentymetry = doubleMetry * 100;
                 double doubleMilimetry = doubleMetry * 1000;
                 writer.println(message);
-                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "<h2>");
+                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "</h2>");
             }
             if (centymetry != "" && centymetry != null) {
                 double doubleCentymetry = Double.valueOf(centymetry);
                 double doubleMetry = doubleCentymetry / 100;
                 double doubleMilimetry = doubleCentymetry * 10;
                 writer.println(message);
-                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "<h2>");
+                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "</h2>");
             }
 
             if (milimetry != "" && milimetry != null) {
@@ -55,7 +55,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleCentymetry = doubleMilimetry / 10;
                 double doubleMetry = doubleMilimetry / 1000;
                 writer.println(message);
-                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "<h2>");
+                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "</h2>");
             }
 
             if (kilogramy != "" && kilogramy != null) {
@@ -63,7 +63,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleGramy = doubleKilogramy * 1000;
                 double doubleMiligramy = doubleKilogramy * 1_000_000;
                 writer.println(message);
-                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "<h2>");
+                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "</h2>");
             }
 
             if (gramy != "" && gramy != null) {
@@ -71,7 +71,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleKilogramy = doubleGramy / 1000;
                 double doubleMiligramy = doubleGramy * 1_000;
                 writer.println(message);
-                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "<h2>");
+                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "</h2>");
             }
 
             if (miligramy != "" && miligramy != null) {
@@ -80,7 +80,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleKilogramy = doubleMiligramy / 1_000_000;
 
                 writer.println(message);
-                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "<h2>");
+                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "</h2>");
             }
 
         }
