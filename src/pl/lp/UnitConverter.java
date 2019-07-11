@@ -19,6 +19,8 @@ public class UnitConverter extends HttpServlet {
         String kilogramy = request.getParameter("kilogramy");
         String gramy = request.getParameter("gramy");
         String miligramy = request.getParameter("miligramy");
+        
+        String message="<h1> Podana wartość w przeliczeniu na:</h1>";
 
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
@@ -37,14 +39,14 @@ public class UnitConverter extends HttpServlet {
                 double doubleMetry = Double.valueOf(metry);
                 double doubleCentymetry = doubleMetry * 100;
                 double doubleMilimetry = doubleMetry * 1000;
-                writer.println("<h1> Podana wartość w przeliczeniu na:</h1>");
+                writer.println(message);
                 writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "<h2>");
             }
             if (centymetry != "" && centymetry != null) {
                 double doubleCentymetry = Double.valueOf(centymetry);
                 double doubleMetry = doubleCentymetry / 100;
                 double doubleMilimetry = doubleCentymetry * 10;
-                writer.println("<h1> Podana wartość w przeliczeniu na:</h1>");
+                writer.println(message);
                 writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "<h2>");
             }
 
@@ -52,7 +54,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleMilimetry = Double.valueOf(milimetry);
                 double doubleCentymetry = doubleMilimetry / 10;
                 double doubleMetry = doubleMilimetry / 1000;
-                writer.println("<h1> Podana wartość w przeliczeniu na:</h1>");
+                writer.println(message);
                 writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "<h2>");
             }
 
@@ -60,7 +62,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleKilogramy = Double.valueOf(kilogramy);
                 double doubleGramy = doubleKilogramy * 1000;
                 double doubleMiligramy = doubleKilogramy * 1_000_000;
-                writer.println("<h1> Podana wartość w przeliczeniu na:</h1>");
+                writer.println(message);
                 writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "<h2>");
             }
 
@@ -68,7 +70,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleGramy = Double.valueOf(gramy);
                 double doubleKilogramy = doubleGramy / 1000;
                 double doubleMiligramy = doubleGramy * 1_000;
-                writer.println("<h1> Podana wartość w przeliczeniu na:</h1>");
+                writer.println(message);
                 writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "<h2>");
             }
 
@@ -77,7 +79,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleGramy = doubleMiligramy / 1000;
                 double doubleKilogramy = doubleMiligramy / 1_000_000;
 
-                writer.println("<h1> Podana wartość w przeliczeniu na:</h1>");
+                writer.println(message);
                 writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "<h2>");
             }
 
