@@ -19,20 +19,17 @@ public class UnitConverter extends HttpServlet {
         String kilogramy = request.getParameter("kilogramy");
         String gramy = request.getParameter("gramy");
         String miligramy = request.getParameter("miligramy");
-        
-        String message="<h1> Podana wartość w przeliczeniu na:</h1>";
 
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
+        String message = "<h1> Podana wartość w przeliczeniu na:</h1>";
+        String lenghtMessage = "<h2>metry: %f <br><br>centymetry:  %f <br><br> milimetry: %f <h2>";
+        String weightMessage = "<h2>kilogramy: %f <br><br>gramy:  %f <br><br> miligramy: %f <h2>";
 
-        if (((metry != "" && metry != null) && (centymetry != "" && centymetry != null))
-                || ((metry != "" && metry != null) && (milimetry != "" && milimetry != null))
-                || ((centymetry != "" && centymetry != null) && (milimetry != "" && milimetry != null))
-                || ((kilogramy != "" && kilogramy != null) && (gramy != "" && gramy != null))
-                || ((kilogramy != "" && kilogramy != null) && (miligramy != "" && miligramy != null))
-                || ((gramy != "" && gramy != null) && (miligramy != "" && miligramy != null))) {
+        if (doubleEntriesCheck(metry,centymetry,milimetry,kilogramy,gramy,miligramy)) {
             writer.println("<h2> Należy wypełnić tylko jedno pole</h2>");
+
         } else {
 
             if (metry != "" && metry != null) {
@@ -40,14 +37,14 @@ public class UnitConverter extends HttpServlet {
                 double doubleCentymetry = doubleMetry * 100;
                 double doubleMilimetry = doubleMetry * 1000;
                 writer.println(message);
-                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "</h2>");
+                writer.printf(lenghtMessage,doubleMetry,doubleCentymetry,doubleMilimetry);
             }
             if (centymetry != "" && centymetry != null) {
                 double doubleCentymetry = Double.valueOf(centymetry);
                 double doubleMetry = doubleCentymetry / 100;
                 double doubleMilimetry = doubleCentymetry * 10;
                 writer.println(message);
-                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "</h2>");
+                writer.printf(lenghtMessage,doubleMetry,doubleCentymetry,doubleMilimetry);
             }
 
             if (milimetry != "" && milimetry != null) {
@@ -55,7 +52,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleCentymetry = doubleMilimetry / 10;
                 double doubleMetry = doubleMilimetry / 1000;
                 writer.println(message);
-                writer.println("<h2>metry: " + doubleMetry + "<br><br>" + "centymetry: " + doubleCentymetry + "<br><br>" + "milimetry:" + doubleMilimetry + "</h2>");
+                writer.printf(lenghtMessage,doubleMetry,doubleCentymetry,doubleMilimetry);
             }
 
             if (kilogramy != "" && kilogramy != null) {
@@ -63,7 +60,7 @@ public class UnitConverter extends HttpServlet {
                 double doubleGramy = doubleKilogramy * 1000;
                 double doubleMiligramy = doubleKilogramy * 1_000_000;
                 writer.println(message);
-                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "</h2>");
+                writer.printf(weightMessage, doubleKilogramy,doubleGramy,doubleMiligramy);
             }
 
             if (gramy != "" && gramy != null) {
@@ -71,19 +68,29 @@ public class UnitConverter extends HttpServlet {
                 double doubleKilogramy = doubleGramy / 1000;
                 double doubleMiligramy = doubleGramy * 1_000;
                 writer.println(message);
-                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "</h2>");
+                writer.printf(weightMessage, doubleKilogramy,doubleGramy,doubleMiligramy);
             }
 
             if (miligramy != "" && miligramy != null) {
                 double doubleMiligramy = Double.valueOf(miligramy);
                 double doubleGramy = doubleMiligramy / 1000;
                 double doubleKilogramy = doubleMiligramy / 1_000_000;
-
                 writer.println(message);
-                writer.println("<h2>kilogramy: " + doubleKilogramy + "<br><br>" + "gramy: " + doubleGramy + "<br><br>" + "miligramy:" + doubleMiligramy + "</h2>");
+                writer.printf(weightMessage, doubleKilogramy,doubleGramy,doubleMiligramy);
             }
 
         }
     }
+
+    boolean doubleEntriesCheck(String metry, String centymetry, String milimetry, String kilogramy, String gramy, String miligramy){
+        boolean state=(((metry != "" && metry != null) && (centymetry != "" && centymetry != null))
+                || ((metry != "" && metry != null) && (milimetry != "" && milimetry != null))
+                || ((centymetry != "" && centymetry != null) && (milimetry != "" && milimetry != null))
+                || ((kilogramy != "" && kilogramy != null) && (gramy != "" && gramy != null))
+                || ((kilogramy != "" && kilogramy != null) && (miligramy != "" && miligramy != null))
+                || ((gramy != "" && gramy != null) && (miligramy != "" && miligramy != null)));
+        return state;
+    }
+
 
 }
